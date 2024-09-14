@@ -6,7 +6,11 @@ function desenharGraficoPizza(){
 	const cred = 2543.09;
 	const deb = 3504.25;
 
-	const total = dinh + pix + cred + deb;
+	const soma = dinh + pix + cred + deb;
+
+	// transformando numero em moeda
+	const somatotal = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+		soma);
 
 	tabela.addColumn('string','categorias');
 	tabela.addColumn('number', 'valores');
@@ -22,7 +26,7 @@ function desenharGraficoPizza(){
 		tabela.sort({column: 1, asc: true});
 
 		const opcoes = {
-			title:`Vendas Mensal Total de ${total}`,
+			title:`Vendas Mensal Total de ${somatotal}`,
 			height: 400,
 			width: 700,
 			legend: 
